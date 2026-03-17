@@ -3,122 +3,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ANYMS AI | Premium AI Systems, Automation & Digital Skills</title>
-  <meta name="description" content="ANYMS AI offers premium practical systems for AI prompts, YouTube automation, and cybersecurity foundations." />
+  <title>ANYMS AI | Premium AI Systems</title>
+  <meta name="description" content="Premium AI systems, automation, and digital skill programs by ANYMS AI." />
   <style>
     :root{
-      --bg:#04060a;
-      --bg-2:#090e16;
-      --panel:rgba(255,255,255,.05);
-      --panel-2:rgba(255,255,255,.03);
-      --line:rgba(255,255,255,.09);
+      --bg:#05070c;
+      --bg-soft:#0b1018;
+      --card:#0e1520;
+      --card-2:#131d2b;
+      --line:rgba(255,255,255,.08);
       --text:#f5f7fb;
-      --muted:#a9b3c4;
-      --muted-2:#7d8798;
-      --accent:#ef4444;
-      --accent-2:#ff6b6b;
-      --accent-soft:rgba(239,68,68,.18);
-      --success:#dbeafe;
-      --shadow:0 30px 90px rgba(0,0,0,.45);
-      --shadow-soft:0 18px 50px rgba(0,0,0,.25);
-      --radius:26px;
-      --max:1220px;
-      --nav-h:78px;
+      --muted:#aab5c8;
+      --muted-2:#7f8aa0;
+      --accent:#e5484d;
+      --accent-2:#ff6b70;
+      --shadow:0 30px 80px rgba(0,0,0,.42);
+      --radius:24px;
+      --max:1200px;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{
-      font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: Inter, Arial, Helvetica, sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at 10% 10%, rgba(239,68,68,.12), transparent 18%),
-        radial-gradient(circle at 90% 12%, rgba(255,255,255,.05), transparent 18%),
-        radial-gradient(circle at 50% 85%, rgba(239,68,68,.08), transparent 20%),
-        linear-gradient(180deg, #03050a 0%, #070b12 45%, #05080d 100%);
-      line-height:1.6;
+        radial-gradient(circle at 10% 10%, rgba(229,72,77,.12), transparent 18%),
+        radial-gradient(circle at 90% 8%, rgba(255,255,255,.04), transparent 16%),
+        radial-gradient(circle at 50% 90%, rgba(229,72,77,.08), transparent 20%),
+        linear-gradient(180deg, #04060a 0%, #09101a 52%, #05080e 100%);
       overflow-x:hidden;
     }
 
     a{text-decoration:none;color:inherit}
     img{display:block;max-width:100%}
-    button,input,textarea{font:inherit}
 
     .container{
       width:min(calc(100% - 32px), var(--max));
       margin-inline:auto;
     }
 
-    .section{
-      position:relative;
-      padding:100px 0;
-    }
-
-    .progress-bar{
+    .progress{
       position:fixed;
       top:0;
       left:0;
-      width:0%;
       height:3px;
-      background:linear-gradient(90deg, var(--accent), var(--accent-2));
-      z-index:120;
-      box-shadow:0 0 20px rgba(239,68,68,.7);
+      width:0%;
+      z-index:999;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      box-shadow:0 0 18px rgba(229,72,77,.8);
     }
 
-    .bg-orb{
+    .orb{
       position:absolute;
       border-radius:999px;
       filter:blur(70px);
       pointer-events:none;
       opacity:.55;
       z-index:-1;
-      animation:floatOrb 11s ease-in-out infinite;
+      animation:float 10s ease-in-out infinite;
     }
+    .orb.one{width:220px;height:220px;left:-70px;top:70px;background:rgba(229,72,77,.15)}
+    .orb.two{width:260px;height:260px;right:-80px;top:280px;background:rgba(255,255,255,.05);animation-delay:1.3s}
+    .orb.three{width:240px;height:240px;left:10%;bottom:60px;background:rgba(229,72,77,.09);animation-delay:2.3s}
 
-    .orb-1{
-      width:220px;height:220px;
-      background:rgba(239,68,68,.16);
-      top:-40px;left:-60px;
-    }
-    .orb-2{
-      width:260px;height:260px;
-      background:rgba(255,255,255,.05);
-      right:-80px;top:80px;
-      animation-delay:1.5s;
-    }
-    .orb-3{
-      width:240px;height:240px;
-      background:rgba(239,68,68,.12);
-      left:10%;bottom:-40px;
-      animation-delay:2.5s;
-    }
-
-    @keyframes floatOrb{
+    @keyframes float{
       0%,100%{transform:translateY(0) translateX(0)}
       50%{transform:translateY(-18px) translateX(10px)}
-    }
-
-    .glass{
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border:1px solid var(--line);
-      backdrop-filter:blur(16px);
-      -webkit-backdrop-filter:blur(16px);
-      box-shadow:var(--shadow);
     }
 
     .nav{
       position:sticky;
       top:0;
       z-index:100;
-      height:var(--nav-h);
-      border-bottom:1px solid rgba(255,255,255,.06);
-      background:rgba(4,6,10,.7);
       backdrop-filter:blur(16px);
-      -webkit-backdrop-filter:blur(16px);
+      background:rgba(5,7,12,.72);
+      border-bottom:1px solid rgba(255,255,255,.06);
     }
 
     .nav-inner{
-      height:100%;
+      min-height:76px;
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -129,20 +93,20 @@
       display:flex;
       align-items:center;
       gap:12px;
-      font-weight:800;
-      letter-spacing:.06em;
       font-size:18px;
+      font-weight:800;
+      letter-spacing:.05em;
     }
 
     .logo-mark{
-      width:42px;height:42px;
+      width:42px;
+      height:42px;
       border-radius:14px;
       display:grid;
       place-items:center;
-      background:
-        linear-gradient(135deg, rgba(239,68,68,.18), rgba(255,255,255,.05));
+      background:linear-gradient(135deg, rgba(229,72,77,.18), rgba(255,255,255,.04));
       border:1px solid rgba(255,255,255,.08);
-      box-shadow:var(--shadow-soft);
+      box-shadow:var(--shadow);
       position:relative;
       overflow:hidden;
     }
@@ -151,9 +115,9 @@
       content:"";
       position:absolute;
       inset:-40%;
-      background:linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent);
       transform:rotate(25deg);
-      animation:shine 6s linear infinite;
+      animation:shine 5.2s linear infinite;
     }
 
     @keyframes shine{
@@ -163,75 +127,48 @@
 
     .nav-links{
       display:flex;
-      align-items:center;
-      gap:26px;
+      gap:24px;
       color:var(--muted);
       font-size:15px;
     }
 
-    .nav-links a{
-      position:relative;
-      transition:.2s ease;
-    }
-
-    .nav-links a::after{
-      content:"";
-      position:absolute;
-      left:0;bottom:-8px;
-      width:0;height:2px;
-      background:linear-gradient(90deg, var(--accent), var(--accent-2));
-      transition:.25s ease;
-      border-radius:999px;
-    }
-
-    .nav-links a:hover{
-      color:var(--text);
-    }
-
-    .nav-links a:hover::after{
-      width:100%;
-    }
+    .nav-links a:hover{color:var(--text)}
 
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:10px;
-      min-height:54px;
+      min-height:52px;
       padding:0 22px;
       border-radius:16px;
-      font-weight:700;
       border:1px solid transparent;
+      font-weight:700;
+      transition:.25s ease;
       cursor:pointer;
-      transition:transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
-      will-change:transform;
     }
 
-    .btn:hover{
-      transform:translateY(-2px);
-    }
-
+    .btn:hover{transform:translateY(-2px)}
     .btn-primary{
-      color:white;
-      background:linear-gradient(180deg, var(--accent-2), var(--accent));
-      box-shadow:0 18px 38px rgba(239,68,68,.22);
+      color:#fff;
+      background:linear-gradient(180deg,var(--accent-2),var(--accent));
+      box-shadow:0 18px 38px rgba(229,72,77,.25);
     }
-
-    .btn-primary:hover{
-      box-shadow:0 22px 45px rgba(239,68,68,.28);
-    }
-
+    .btn-primary:hover{box-shadow:0 22px 44px rgba(229,72,77,.3)}
     .btn-secondary{
-      color:var(--text);
       background:rgba(255,255,255,.04);
       border-color:var(--line);
+      color:var(--text);
     }
+    .btn-secondary:hover{background:rgba(255,255,255,.07)}
 
-    .btn-secondary:hover{
-      background:rgba(255,255,255,.07);
+    .section{padding:96px 0;position:relative}
+    .hero{
+      min-height:calc(100vh - 76px);
+      display:flex;
+      align-items:center;
+      padding:56px 0 32px;
     }
-
-    .btn-full{width:100%}
 
     .pill{
       display:inline-flex;
@@ -243,27 +180,18 @@
       background:rgba(255,255,255,.04);
       color:var(--muted);
       font-size:14px;
-      box-shadow:var(--shadow-soft);
     }
 
     .pill-dot{
       width:8px;height:8px;border-radius:50%;
       background:var(--accent);
-      box-shadow:0 0 14px rgba(239,68,68,.9);
+      box-shadow:0 0 14px rgba(229,72,77,.9);
       animation:pulse 1.8s infinite;
     }
 
     @keyframes pulse{
       0%,100%{transform:scale(1);opacity:1}
-      50%{transform:scale(1.4);opacity:.6}
-    }
-
-    .hero{
-      min-height:calc(100vh - var(--nav-h));
-      display:flex;
-      align-items:center;
-      padding:54px 0 30px;
-      overflow:hidden;
+      50%{transform:scale(1.45);opacity:.6}
     }
 
     .hero-grid{
@@ -274,24 +202,25 @@
     }
 
     .hero-copy h1{
-      font-size:clamp(42px, 7vw, 82px);
-      line-height:.98;
-      letter-spacing:-.045em;
+      font-size:clamp(42px, 7vw, 84px);
+      line-height:.96;
+      letter-spacing:-.05em;
       margin:18px 0 18px;
       max-width:11ch;
     }
 
-    .hero-copy h1 .accent{
-      background:linear-gradient(90deg, #fff, #ffc7c7 55%, #ff7474);
+    .highlight{
+      background:linear-gradient(90deg, #fff, #ffd2d3 55%, #ff7a7e);
       -webkit-background-clip:text;
       background-clip:text;
       color:transparent;
     }
 
     .hero-copy p{
-      font-size:18px;
       color:var(--muted);
-      max-width:650px;
+      font-size:18px;
+      line-height:1.75;
+      max-width:640px;
     }
 
     .hero-actions{
@@ -311,8 +240,9 @@
     .stat{
       padding:14px 16px;
       border-radius:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
       border:1px solid var(--line);
-      background:rgba(255,255,255,.03);
+      box-shadow:var(--shadow);
       min-width:145px;
     }
 
@@ -329,15 +259,16 @@
 
     .hero-visual{
       position:relative;
-      min-height:640px;
+      min-height:650px;
       border-radius:30px;
       overflow:hidden;
       border:1px solid var(--line);
       background:
         linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)),
-        linear-gradient(135deg, #090d15, #0f1825);
+        linear-gradient(135deg, #090d15, #10192a);
       box-shadow:var(--shadow);
-      isolation:isolate;
+      transform-style:preserve-3d;
+      transition:transform .2s ease;
     }
 
     .hero-visual::before{
@@ -345,7 +276,7 @@
       position:absolute;
       inset:0;
       background:
-        radial-gradient(circle at 75% 18%, rgba(239,68,68,.20), transparent 18%),
+        radial-gradient(circle at 75% 18%, rgba(229,72,77,.18), transparent 18%),
         radial-gradient(circle at 20% 80%, rgba(255,255,255,.05), transparent 18%);
       z-index:0;
     }
@@ -357,7 +288,7 @@
         linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
       background-size:34px 34px;
-      mask-image:linear-gradient(180deg, rgba(0,0,0,.7), transparent 92%);
+      mask-image:linear-gradient(180deg, rgba(0,0,0,.8), transparent 92%);
       z-index:0;
     }
 
@@ -374,59 +305,45 @@
       width:100%;
       height:100%;
       object-fit:cover;
-      transform:scale(1.04);
+      transform:scale(1.05);
       animation:slowZoom 14s ease-in-out infinite alternate;
       filter:saturate(1.02) contrast(1.03);
     }
 
     @keyframes slowZoom{
-      from{transform:scale(1.04) translateY(0)}
-      to{transform:scale(1.1) translateY(-8px)}
+      from{transform:scale(1.05) translateY(0)}
+      to{transform:scale(1.10) translateY(-10px)}
     }
 
-    .floating-card{
+    .floating{
       position:absolute;
       padding:14px 16px;
       border-radius:18px;
       border:1px solid rgba(255,255,255,.09);
-      background:rgba(8,11,18,.74);
+      background:rgba(8,11,18,.78);
       backdrop-filter:blur(12px);
       color:var(--muted);
-      box-shadow:var(--shadow-soft);
+      box-shadow:var(--shadow);
       z-index:2;
       animation:cardFloat 5s ease-in-out infinite;
     }
 
-    .floating-card strong{
+    .floating strong{
       display:block;
       color:var(--text);
       margin-bottom:2px;
     }
 
-    .fc-1{top:22px;left:22px}
-    .fc-2{right:22px;top:96px;animation-delay:1.2s}
-    .fc-3{left:22px;bottom:22px;animation-delay:2.2s}
+    .f1{top:22px;left:22px}
+    .f2{right:22px;top:90px;animation-delay:1.2s}
+    .f3{left:22px;bottom:22px;animation-delay:2.2s}
 
     @keyframes cardFloat{
       0%,100%{transform:translateY(0)}
       50%{transform:translateY(-9px)}
     }
 
-    .mini-tag{
-      display:inline-block;
-      margin-top:4px;
-      padding:6px 10px;
-      border-radius:999px;
-      background:rgba(239,68,68,.14);
-      color:#ffd7d7;
-      font-size:12px;
-      border:1px solid rgba(239,68,68,.18);
-    }
-
-    .strip{
-      padding:18px 0 8px;
-    }
-
+    .strip{padding:10px 0 0}
     .strip-grid{
       display:grid;
       grid-template-columns:repeat(4,1fr);
@@ -438,11 +355,11 @@
       border-radius:18px;
       border:1px solid var(--line);
       background:rgba(255,255,255,.03);
-      color:var(--muted);
       text-align:center;
+      color:var(--muted);
       font-weight:600;
-      box-shadow:var(--shadow-soft);
-      transition:transform .25s ease, background .25s ease;
+      box-shadow:var(--shadow);
+      transition:.25s ease;
     }
 
     .strip-box:hover{
@@ -451,12 +368,12 @@
     }
 
     .section-head{
-      max-width:820px;
+      max-width:800px;
       margin-bottom:28px;
     }
 
     .section-head h2{
-      font-size:clamp(32px, 4.5vw, 58px);
+      font-size:clamp(32px,4.5vw,58px);
       line-height:1.04;
       letter-spacing:-.04em;
       margin-bottom:12px;
@@ -465,59 +382,49 @@
     .section-head p{
       color:var(--muted);
       font-size:17px;
+      line-height:1.75;
     }
 
-    .why-grid{
+    .grid-4{
       display:grid;
       grid-template-columns:repeat(4,1fr);
       gap:18px;
     }
 
-    .why-card{
-      position:relative;
+    .box{
       padding:24px;
       border-radius:24px;
-      overflow:hidden;
-      transition:transform .28s ease, border-color .28s ease;
-    }
-
-    .why-card:hover{
-      transform:translateY(-6px);
-      border-color:rgba(239,68,68,.22);
-    }
-
-    .why-card::after{
-      content:"";
-      position:absolute;
-      inset:auto 0 0 0;
-      height:2px;
-      background:linear-gradient(90deg, transparent, rgba(239,68,68,.7), transparent);
-      opacity:0;
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
       transition:.28s ease;
     }
 
-    .why-card:hover::after{opacity:1}
+    .box:hover{
+      transform:translateY(-6px);
+      border-color:rgba(229,72,77,.22);
+    }
 
-    .why-icon{
+    .icon{
       width:50px;height:50px;
       border-radius:16px;
       display:grid;
       place-items:center;
-      background:rgba(239,68,68,.12);
-      border:1px solid rgba(239,68,68,.18);
-      margin-bottom:16px;
       font-size:20px;
-      box-shadow:0 10px 25px rgba(239,68,68,.08);
+      margin-bottom:16px;
+      background:rgba(229,72,77,.12);
+      border:1px solid rgba(229,72,77,.18);
     }
 
-    .why-card h3{
-      font-size:19px;
-      margin-bottom:7px;
+    .box h3{
+      font-size:20px;
+      margin-bottom:8px;
     }
 
-    .why-card p{
+    .box p{
       color:var(--muted);
       font-size:15px;
+      line-height:1.7;
     }
 
     .courses-grid{
@@ -527,38 +434,28 @@
       align-items:stretch;
     }
 
-    .course-card{
+    .course{
       position:relative;
       padding:26px;
       border-radius:28px;
       overflow:hidden;
-      transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease;
-    }
-
-    .course-card:hover{
-      transform:translateY(-8px);
-      border-color:rgba(239,68,68,.25);
-      box-shadow:0 35px 90px rgba(0,0,0,.48);
-    }
-
-    .course-card::before{
-      content:"";
-      position:absolute;
-      inset:0;
       background:
-        radial-gradient(circle at top right, rgba(239,68,68,.12), transparent 26%);
-      pointer-events:none;
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)),
+        linear-gradient(180deg, var(--card), var(--card-2));
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      transition:.3s ease;
     }
 
-    .course-card.featured{
-      border-color:rgba(239,68,68,.25);
-      box-shadow:0 28px 80px rgba(239,68,68,.12);
-      transform:translateY(-6px);
+    .course:hover{
+      transform:translateY(-8px);
+      border-color:rgba(229,72,77,.25);
     }
 
-    .course-card.featured:hover{
-      transform:translateY(-12px);
-      box-shadow:0 40px 100px rgba(239,68,68,.16);
+    .course.featured{
+      border-color:rgba(229,72,77,.28);
+      box-shadow:0 32px 90px rgba(229,72,77,.12);
+      transform:translateY(-4px);
     }
 
     .course-badge{
@@ -571,16 +468,26 @@
       font-weight:800;
       letter-spacing:.05em;
       text-transform:uppercase;
-      background:rgba(255,255,255,.04);
+      background:rgba(255,255,255,.05);
       border:1px solid var(--line);
       color:var(--muted);
       margin-bottom:16px;
     }
 
     .featured .course-badge{
-      background:rgba(239,68,68,.14);
+      background:rgba(229,72,77,.14);
+      border-color:rgba(229,72,77,.18);
       color:#ffd9d9;
-      border-color:rgba(239,68,68,.18);
+    }
+
+    .course-image{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,.07);
+      margin-bottom:18px;
+      box-shadow:var(--shadow);
     }
 
     .price{
@@ -591,7 +498,7 @@
     }
 
     .price strong{
-      font-size:46px;
+      font-size:44px;
       line-height:1;
       letter-spacing:-.05em;
     }
@@ -602,75 +509,52 @@
       margin-bottom:5px;
     }
 
-    .course-card h3{
+    .course h3{
       font-size:26px;
       line-height:1.12;
       margin-bottom:10px;
     }
 
-    .course-card p{
+    .course p{
       color:var(--muted);
       margin-bottom:18px;
-      min-height:80px;
+      min-height:84px;
+      line-height:1.7;
     }
 
-    .course-list{
+    .course ul{
       list-style:none;
       display:grid;
       gap:10px;
       margin-bottom:22px;
     }
 
-    .course-list li{
+    .course li{
       position:relative;
       padding-left:26px;
-      color:#dbe4f3;
+      color:#dde6f3;
       font-size:15px;
     }
 
-    .course-list li::before{
+    .course li::before{
       content:"✓";
       position:absolute;
-      left:0;top:0;
+      left:0;
+      top:0;
       color:var(--accent-2);
       font-weight:900;
     }
 
-    .card-glow{
+    .glow{
       position:absolute;
-      width:140px;height:140px;
+      right:-40px;
+      bottom:-40px;
+      width:150px;
+      height:150px;
       border-radius:999px;
-      right:-30px;bottom:-40px;
-      background:rgba(239,68,68,.11);
+      background:rgba(229,72,77,.11);
       filter:blur(28px);
       pointer-events:none;
-    }
-
-    .audience-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:18px;
-    }
-
-    .audience-box{
-      padding:24px;
-      border-radius:24px;
-      transition:transform .25s ease, border-color .25s ease;
-    }
-
-    .audience-box:hover{
-      transform:translateY(-5px);
-      border-color:rgba(239,68,68,.2);
-    }
-
-    .audience-box h3{
-      font-size:20px;
-      margin-bottom:7px;
-    }
-
-    .audience-box p{
-      color:var(--muted);
-      font-size:15px;
     }
 
     .about-wrap{
@@ -685,6 +569,9 @@
       min-height:620px;
       border-radius:30px;
       overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
     }
 
     .about-card img{
@@ -695,26 +582,24 @@
       transition:transform 1s ease;
     }
 
-    .about-card:hover img{
-      transform:scale(1.08);
-    }
+    .about-card:hover img{transform:scale(1.08)}
 
     .about-card::after{
       content:"";
       position:absolute;
       inset:0;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.58));
-      pointer-events:none;
+      background:linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.58));
     }
 
     .about-badge{
       position:absolute;
-      left:18px;right:18px;bottom:18px;
+      left:18px;
+      right:18px;
+      bottom:18px;
       z-index:2;
       padding:18px;
       border-radius:20px;
-      background:rgba(7,10,16,.76);
+      background:rgba(7,10,16,.78);
       border:1px solid rgba(255,255,255,.08);
       backdrop-filter:blur(12px);
       color:var(--muted);
@@ -730,10 +615,13 @@
     .about-copy{
       padding:34px;
       border-radius:30px;
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
     }
 
     .about-copy h2{
-      font-size:clamp(32px,4.2vw,56px);
+      font-size:clamp(32px,4.5vw,58px);
       line-height:1.04;
       letter-spacing:-.04em;
       margin-bottom:14px;
@@ -742,30 +630,71 @@
     .about-copy p{
       color:var(--muted);
       margin-bottom:15px;
+      line-height:1.75;
       font-size:16px;
     }
 
-    .about-list{
+    .about-copy ul{
       list-style:none;
       display:grid;
       gap:12px;
       margin:20px 0 28px;
     }
 
-    .about-list li{
+    .about-copy li{
       position:relative;
       padding-left:30px;
       color:#e0e8f5;
     }
 
-    .about-list li::before{
+    .about-copy li::before{
       content:"";
       position:absolute;
-      left:0;top:8px;
+      left:0;
+      top:8px;
       width:14px;height:14px;
       border-radius:999px;
-      background:linear-gradient(180deg, var(--accent-2), var(--accent));
-      box-shadow:0 0 16px rgba(239,68,68,.55);
+      background:linear-gradient(180deg,var(--accent-2),var(--accent));
+      box-shadow:0 0 16px rgba(229,72,77,.55);
+    }
+
+    .how-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+
+    .step{
+      padding:24px;
+      border-radius:24px;
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      transition:.28s ease;
+    }
+
+    .step:hover{transform:translateY(-6px)}
+
+    .step-num{
+      width:42px;height:42px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      font-weight:800;
+      background:rgba(229,72,77,.12);
+      border:1px solid rgba(229,72,77,.18);
+      margin-bottom:14px;
+    }
+
+    .step h3{
+      font-size:20px;
+      margin-bottom:8px;
+    }
+
+    .step p{
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.7;
     }
 
     .faq-wrap{
@@ -773,21 +702,18 @@
       gap:14px;
     }
 
-    .faq-item{
+    .faq{
       border-radius:20px;
       overflow:hidden;
-      transition:border-color .25s ease, transform .25s ease;
-    }
-
-    .faq-item:hover{
-      transform:translateY(-2px);
-      border-color:rgba(239,68,68,.16);
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
     }
 
     .faq-q{
       width:100%;
-      background:none;
       border:none;
+      background:none;
       color:var(--text);
       text-align:left;
       padding:21px 22px;
@@ -806,14 +732,10 @@
       display:grid;
       place-items:center;
       color:var(--accent-2);
-      background:rgba(239,68,68,.08);
-      border:1px solid rgba(239,68,68,.13);
+      background:rgba(229,72,77,.08);
+      border:1px solid rgba(229,72,77,.13);
+      transition:.25s ease;
       flex:0 0 auto;
-      transition:transform .25s ease;
-    }
-
-    .faq-item.active .faq-icon{
-      transform:rotate(45deg);
     }
 
     .faq-a{
@@ -822,20 +744,18 @@
       transition:grid-template-rows .28s ease;
     }
 
-    .faq-item.active .faq-a{
-      grid-template-rows:1fr;
-    }
+    .faq.active .faq-a{grid-template-rows:1fr}
+    .faq.active .faq-icon{transform:rotate(45deg)}
 
     .faq-a-inner{
       overflow:hidden;
       padding:0 22px;
       color:var(--muted);
       font-size:15px;
+      line-height:1.7;
     }
 
-    .faq-item.active .faq-a-inner{
-      padding:0 22px 22px;
-    }
+    .faq.active .faq-a-inner{padding:0 22px 22px}
 
     .cta-box{
       position:relative;
@@ -843,7 +763,9 @@
       border-radius:32px;
       overflow:hidden;
       text-align:center;
-      isolation:isolate;
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border:1px solid rgba(229,72,77,.22);
+      box-shadow:var(--shadow);
     }
 
     .cta-box::before{
@@ -851,10 +773,12 @@
       position:absolute;
       inset:0;
       background:
-        radial-gradient(circle at 20% 30%, rgba(239,68,68,.13), transparent 20%),
+        radial-gradient(circle at 20% 30%, rgba(229,72,77,.13), transparent 20%),
         radial-gradient(circle at 80% 70%, rgba(255,255,255,.05), transparent 22%);
-      z-index:-1;
+      z-index:0;
     }
+
+    .cta-box > *{position:relative;z-index:1}
 
     .cta-box h2{
       font-size:clamp(32px,4.5vw,58px);
@@ -868,6 +792,7 @@
       max-width:760px;
       margin:0 auto 24px;
       font-size:17px;
+      line-height:1.75;
     }
 
     .cta-actions{
@@ -886,8 +811,8 @@
 
     .footer-inner{
       display:flex;
-      align-items:center;
       justify-content:space-between;
+      align-items:center;
       gap:16px;
       flex-wrap:wrap;
     }
@@ -903,31 +828,21 @@
       transform:translateY(0);
     }
 
-    @media (max-width: 1100px){
-      .hero-grid,
-      .about-wrap,
-      .courses-grid,
-      .why-grid,
-      .audience-grid{
+    @media (max-width:1100px){
+      .hero-grid,.strip-grid,.grid-4,.courses-grid,.about-wrap,.how-grid{
         grid-template-columns:1fr 1fr;
       }
-      .strip-grid{grid-template-columns:1fr 1fr}
       .hero-visual{min-height:520px}
-      .about-card{min-height:480px}
+      .about-card{min-height:460px}
     }
 
-    @media (max-width: 760px){
+    @media (max-width:760px){
       .nav-links{display:none}
+      .section{padding:72px 0}
       .hero{min-height:auto;padding-top:36px}
-      .hero-grid,
-      .about-wrap,
-      .courses-grid,
-      .why-grid,
-      .audience-grid,
-      .strip-grid{
+      .hero-grid,.strip-grid,.grid-4,.courses-grid,.about-wrap,.how-grid{
         grid-template-columns:1fr;
       }
-      .section{padding:72px 0}
       .hero-copy h1{max-width:none}
       .hero-visual{min-height:420px}
       .about-card{min-height:360px}
@@ -937,7 +852,7 @@
   </style>
 </head>
 <body>
-  <div class="progress-bar" id="progressBar"></div>
+  <div class="progress" id="progress"></div>
 
   <nav class="nav">
     <div class="container nav-inner">
@@ -959,20 +874,20 @@
 
   <main>
     <section class="hero">
-      <div class="bg-orb orb-1"></div>
-      <div class="bg-orb orb-2"></div>
+      <div class="orb one"></div>
+      <div class="orb two"></div>
 
       <div class="container hero-grid">
         <div class="hero-copy reveal">
           <div class="pill">
             <span class="pill-dot"></span>
-            <span>Premium systems for AI, automation, and digital growth</span>
+            <span>Premium AI systems for creators, learners, and hustlers</span>
           </div>
 
-          <h1>Build <span class="accent">smarter</span> with AI, automation, and future-proof skills.</h1>
+          <h1>Turn AI into <span class="highlight">systems</span>, not just content.</h1>
 
           <p>
-            ANYMS AI gives you practical systems designed to save time, sharpen output, and help you move with more clarity — from prompts and YouTube automation to cybersecurity foundations.
+            ANYMS AI helps you build smarter with premium prompts, YouTube automation guidance, and cybersecurity foundations — all in one clean, modern, luxury experience.
           </p>
 
           <div class="hero-actions">
@@ -981,42 +896,41 @@
           </div>
 
           <div class="hero-stats">
-            <div class="stat glass">
+            <div class="stat">
               <strong>3</strong>
-              <span>focused offers</span>
+              <span>premium offers</span>
             </div>
-            <div class="stat glass">
+            <div class="stat">
               <strong>$16</strong>
-              <span>starter entry point</span>
+              <span>easy start point</span>
             </div>
-            <div class="stat glass">
-              <strong>Beginner</strong>
-              <span>friendly approach</span>
+            <div class="stat">
+              <strong>1-1</strong>
+              <span>guidance included</span>
             </div>
           </div>
         </div>
 
-        <div class="hero-visual reveal">
+        <div class="hero-visual reveal" id="heroVisual">
           <div class="grid-lines"></div>
 
-          <div class="floating-card fc-1">
+          <div class="floating f1">
             <strong>ANYMS AI</strong>
-            Luxury learning systems
-            <div class="mini-tag">dark premium</div>
+            premium systems + practical direction
           </div>
 
-          <div class="floating-card fc-2">
+          <div class="floating f2">
             <strong>3-course stack</strong>
             prompts · automation · cybersecurity
           </div>
 
-          <div class="floating-card fc-3">
+          <div class="floating f3">
             <strong>Built for action</strong>
             not just information
           </div>
 
           <div class="hero-image-wrap">
-            <img class="hero-image" src="images/anonymous-mask-hero.jpg" alt="ANYMS AI founder with anonymous mask" />
+            <img class="hero-image" src="images/hero-mask.jpg" alt="ANYMS AI premium hero image" />
           </div>
         </div>
       </div>
@@ -1024,128 +938,128 @@
 
     <section class="strip">
       <div class="container strip-grid reveal">
-        <div class="strip-box glass">AI Prompt Systems</div>
-        <div class="strip-box glass">YouTube Automation</div>
-        <div class="strip-box glass">Cybersecurity Basics</div>
-        <div class="strip-box glass">Practical Digital Skills</div>
+        <div class="strip-box">AI Prompt Systems</div>
+        <div class="strip-box">YouTube Automation</div>
+        <div class="strip-box">Cybersecurity Foundation</div>
+        <div class="strip-box">Personal Guidance</div>
       </div>
     </section>
 
     <section class="section" id="why">
-      <div class="bg-orb orb-3"></div>
       <div class="container">
         <div class="section-head reveal">
           <h2>Built for action, not just information.</h2>
           <p>
-            Most people consume content every day and still stay stuck. ANYMS AI is made to help you move faster through practical systems that reduce confusion and improve results.
+            Most people consume content and stay confused. ANYMS AI is designed to help you move faster with premium systems that save time, improve output, and give clear direction.
           </p>
         </div>
 
-        <div class="why-grid">
-          <div class="why-card glass reveal">
-            <div class="why-icon">⚡</div>
+        <div class="grid-4">
+          <div class="box reveal">
+            <div class="icon">⚡</div>
             <h3>Faster execution</h3>
-            <p>Use systems that remove repetitive setup and help you work more efficiently every time.</p>
+            <p>Use systems that reduce repetition and help you work with more speed and clarity.</p>
           </div>
-
-          <div class="why-card glass reveal">
-            <div class="why-icon">🎯</div>
-            <h3>Clear learning path</h3>
-            <p>No overloaded theory. Just structured material built around practical use and clean direction.</p>
+          <div class="box reveal">
+            <div class="icon">🎯</div>
+            <h3>Clear direction</h3>
+            <p>No useless overload. Just clean guidance built around real use and real next steps.</p>
           </div>
-
-          <div class="why-card glass reveal">
-            <div class="why-icon">🤖</div>
-            <h3>Modern AI workflows</h3>
-            <p>Use prompts and automation more effectively through systems that are ready to apply.</p>
+          <div class="box reveal">
+            <div class="icon">🤖</div>
+            <h3>Smarter workflows</h3>
+            <p>Prompts, automation, and structured systems that make AI work better for you.</p>
           </div>
-
-          <div class="why-card glass reveal">
-            <div class="why-icon">🛡️</div>
-            <h3>Useful digital skills</h3>
-            <p>Build knowledge that supports content creation, efficient workflows, and technical growth.</p>
+          <div class="box reveal">
+            <div class="icon">🛡️</div>
+            <h3>Stronger skills</h3>
+            <p>Build digital knowledge that supports content, efficiency, and long-term growth.</p>
           </div>
         </div>
       </div>
     </section>
 
     <section class="section" id="courses">
+      <div class="orb three"></div>
       <div class="container">
         <div class="section-head reveal">
           <h2>Choose your path.</h2>
           <p>
-            Start with the offer that matches your current goal. Keep it focused, start clean, and build from there.
+            Start with the offer that matches your goal. Each one is designed to feel premium, clear, and easy to follow.
           </p>
         </div>
 
         <div class="courses-grid">
-          <div class="course-card glass reveal">
+          <div class="course reveal">
             <div class="course-badge">Entry Offer</div>
+            <img class="course-image" src="images/prompt-system.jpg" alt="AI Prompt System" />
             <div class="price">
               <strong>$16</strong>
               <span>one-time</span>
             </div>
             <h3>AI Prompt System</h3>
             <p>
-              A refined 7-prompt system designed to save time, improve results, and make AI work better for you from day one.
+              A premium 7-prompt system designed to understand the user first, think deeply, and guide in simple practical steps.
             </p>
-            <ul class="course-list">
-              <li>Viral script prompt</li>
-              <li>Smart learning prompt</li>
-              <li>AI visual prompt</li>
-              <li>Personal refinement prompt</li>
-              <li>Niche and trend prompt</li>
-              <li>Workflow and automation prompt</li>
-              <li>Money-content prompt</li>
+            <ul>
+              <li>Life + goal clarity</li>
+              <li>Viral content thinking</li>
+              <li>Smart learning system</li>
+              <li>AI creator prompts</li>
+              <li>Personal improvement</li>
+              <li>Niche + direction finder</li>
+              <li>Simple money system</li>
             </ul>
-            <a href="YOUR_STRIPE_LINK_16" class="btn btn-primary btn-full">Buy Now</a>
-            <div class="card-glow"></div>
+            <a href="https://buy.stripe.com/dRm28s2jsgAt46p7b20x209" class="btn btn-primary" style="width:100%;">Buy Now</a>
+            <div class="glow"></div>
           </div>
 
-          <div class="course-card glass featured reveal">
+          <div class="course featured reveal">
             <div class="course-badge">Main Offer</div>
+            <img class="course-image" src="images/youtube-ai.jpg" alt="YouTube AI and Automation" />
             <div class="price">
               <strong>$69</strong>
               <span>one-time</span>
             </div>
             <h3>YouTube AI & Automation</h3>
             <p>
-              Learn how to build a faster, smarter YouTube workflow using AI tools, content systems, and automation methods.
+              This is not just a course. It includes 1-1 guidance to help you build your content system with more clarity and structure.
             </p>
-            <ul class="course-list">
-              <li>Content planning system</li>
-              <li>AI script workflow</li>
-              <li>Video production process</li>
-              <li>Automation setup basics</li>
-              <li>Publishing workflow</li>
-              <li>Growth strategy direction</li>
-              <li>Practical monetization overview</li>
+            <ul>
+              <li>1-1 guidance setup</li>
+              <li>AI content workflow</li>
+              <li>YouTube automation direction</li>
+              <li>Instagram DM support</li>
+              <li>Goal-based help</li>
+              <li>Strategy based on your level</li>
+              <li>Personalized guidance flow</li>
             </ul>
-            <a href="YOUR_STRIPE_LINK_69" class="btn btn-primary btn-full">Buy Now</a>
-            <div class="card-glow"></div>
+            <a href="https://buy.stripe.com/5kQeVe9LUac56ex3YQ0x20a" class="btn btn-primary" style="width:100%;">Buy Now</a>
+            <div class="glow"></div>
           </div>
 
-          <div class="course-card glass reveal">
+          <div class="course reveal">
             <div class="course-badge">Premium Offer</div>
+            <img class="course-image" src="images/ceh-foundation.jpg" alt="CEH Foundation Program" />
             <div class="price">
               <strong>$150</strong>
               <span>one-time</span>
             </div>
             <h3>CEH Foundation Program</h3>
             <p>
-              A structured introduction to ethical hacking and cybersecurity foundations for learners who want serious technical direction.
+              A premium beginner-friendly cybersecurity foundation focused on structured learning, ethical hacking concepts, and guided support.
             </p>
-            <ul class="course-list">
-              <li>Cybersecurity basics</li>
-              <li>Ethical hacking concepts</li>
-              <li>Foundational tools and mindset</li>
-              <li>Beginner learning roadmap</li>
-              <li>Skill-based progression</li>
-              <li>Practical understanding</li>
-              <li>Long-term technical value</li>
+            <ul>
+              <li>Cybersecurity fundamentals</li>
+              <li>Ethical hacking mindset</li>
+              <li>Basic system security</li>
+              <li>Structured learning path</li>
+              <li>Premium welcome portal</li>
+              <li>Group access guidance</li>
+              <li>1-1 support direction</li>
             </ul>
-            <a href="YOUR_STRIPE_LINK_150" class="btn btn-primary btn-full">Buy Now</a>
-            <div class="card-glow"></div>
+            <a href="https://buy.stripe.com/28E4gA1fo1FzbyR0ME0x208" class="btn btn-primary" style="width:100%;">Buy Now</a>
+            <div class="glow"></div>
           </div>
         </div>
       </div>
@@ -1156,27 +1070,24 @@
         <div class="section-head reveal">
           <h2>Who ANYMS AI is built for.</h2>
           <p>
-            Designed for people who want useful systems, better workflows, and stronger direction without wasting time.
+            Designed for people who want useful systems, better workflows, stronger direction, and premium learning without wasting time.
           </p>
         </div>
 
-        <div class="audience-grid">
-          <div class="audience-box glass reveal">
+        <div class="grid-4">
+          <div class="box reveal">
             <h3>Students</h3>
             <p>Who want practical digital skills they can actually use beyond just watching tutorials.</p>
           </div>
-
-          <div class="audience-box glass reveal">
+          <div class="box reveal">
             <h3>Creators</h3>
             <p>Who want faster content systems, stronger ideas, and better AI-assisted output.</p>
           </div>
-
-          <div class="audience-box glass reveal">
+          <div class="box reveal">
             <h3>Beginners</h3>
             <p>Who need a clean starting point with less confusion and more clarity.</p>
           </div>
-
-          <div class="audience-box glass reveal">
+          <div class="box reveal">
             <h3>Hustlers</h3>
             <p>Who want time-saving systems and skills that support smarter online work.</p>
           </div>
@@ -1186,34 +1097,68 @@
 
     <section class="section" id="about">
       <div class="container about-wrap">
-        <div class="about-card glass reveal">
-          <img src="images/anonymous-mask-about.jpg" alt="Founder of ANYMS AI wearing anonymous mask" />
+        <div class="about-card reveal">
+          <img src="images/about-mask.jpg" alt="ANYMS AI founder visual" />
           <div class="about-badge">
-            <strong>Founder / Mentor</strong>
-            Built for people who want practical systems, sharper execution, and a cleaner path forward.
+            <strong>ANYMS AI</strong>
+            Built for people who want premium systems, sharper execution, and a cleaner path forward.
           </div>
         </div>
 
-        <div class="about-copy glass reveal">
+        <div class="about-copy reveal">
           <h2>About ANYMS AI</h2>
           <p>
-            ANYMS AI was built for people who do not want to stay stuck in endless information.
+            ANYMS AI was built for people who do not want to stay stuck in endless information and random motivation.
           </p>
           <p>
-            The idea is simple: make AI more useful, make workflows more efficient, and give learners a stronger path through focused digital systems.
+            The idea is simple: make AI more useful, make workflows more efficient, and give people a stronger path through premium systems that feel clear, practical, and valuable.
           </p>
           <p>
-            Whether your goal is better prompts, smarter YouTube execution, or a stronger cybersecurity foundation, the focus stays the same — clarity, practicality, and forward movement.
+            Whether your goal is smarter prompts, better YouTube execution, or a stronger cybersecurity foundation, the focus stays the same — clarity, premium experience, and forward movement.
           </p>
 
-          <ul class="about-list">
-            <li>Built around practical use, not hype</li>
-            <li>Simple offers with direct value</li>
-            <li>Focused on speed, clarity, and execution</li>
-            <li>Designed for modern AI-driven work</li>
+          <ul>
+            <li>Built around real use, not hype</li>
+            <li>Premium experience with clear value</li>
+            <li>Focused on speed, structure, and execution</li>
+            <li>Made for modern AI-driven work</li>
           </ul>
 
           <a href="#courses" class="btn btn-primary">Start With ANYMS AI</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>How it works.</h2>
+          <p>
+            The process is simple, premium, and built to remove confusion.
+          </p>
+        </div>
+
+        <div class="how-grid">
+          <div class="step reveal">
+            <div class="step-num">1</div>
+            <h3>Choose</h3>
+            <p>Pick the offer that matches your current goal, level, and direction.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-num">2</div>
+            <h3>Pay</h3>
+            <p>Use the secure Stripe checkout to complete payment in a clean, simple way.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-num">3</div>
+            <h3>Access</h3>
+            <p>Get redirected instantly to your Google Doc access page or premium welcome page.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-num">4</div>
+            <h3>Start</h3>
+            <p>Use the material, message on Instagram when needed, and move forward with structure.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -1228,62 +1173,62 @@
         </div>
 
         <div class="faq-wrap">
-          <div class="faq-item glass reveal active">
+          <div class="faq reveal active">
             <button class="faq-q">
               <span>Do I need experience to start?</span>
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-a">
               <div class="faq-a-inner">
-                No. The offers are designed to be beginner friendly and simple to follow.
+                No. All three offers are beginner friendly and designed to help you move with more clarity.
               </div>
             </div>
           </div>
 
-          <div class="faq-item glass reveal">
+          <div class="faq reveal">
             <button class="faq-q">
-              <span>Which course should I start with?</span>
+              <span>How do I get access after payment?</span>
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-a">
               <div class="faq-a-inner">
-                Start with the AI Prompt System if you want the easiest entry point. Choose YouTube AI & Automation for content workflow, or CEH Foundation Program for technical growth.
+                After payment, you are redirected directly to your Google Doc access page or premium welcome page.
               </div>
             </div>
           </div>
 
-          <div class="faq-item glass reveal">
+          <div class="faq reveal">
             <button class="faq-q">
-              <span>Will I get lifetime access?</span>
+              <span>Is the $69 offer a course or guidance?</span>
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-a">
               <div class="faq-a-inner">
-                You can position the AI Prompt System as lifetime access. For the other offers, set access based on how you want to deliver them.
+                It is positioned as guidance with a structured access process. You message on Instagram and receive direction based on your goal and current level.
               </div>
             </div>
           </div>
 
-          <div class="faq-item glass reveal">
+          <div class="faq reveal">
             <button class="faq-q">
-              <span>Is this practical or mostly theory?</span>
+              <span>What makes the CEH offer premium?</span>
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-a">
               <div class="faq-a-inner">
-                The direction is practical. The goal is to help people use better systems, not just consume information.
+                It includes a premium welcome experience, structured cybersecurity foundation, and guided access flow instead of random files.
               </div>
             </div>
           </div>
 
-          <div class="faq-item glass reveal">
+          <div class="faq reveal">
             <button class="faq-q">
-              <span>Can I buy more than one course?</span>
+              <span>Can I buy more than one offer?</span>
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-a">
               <div class="faq-a-inner">
-                Yes. The three offers are designed to complement each other and can work well together depending on your goals.
+                Yes. The three offers are designed to complement each other depending on your goals.
               </div>
             </div>
           </div>
@@ -1293,14 +1238,14 @@
 
     <section class="section">
       <div class="container">
-        <div class="cta-box glass reveal">
+        <div class="cta-box reveal">
           <h2>Start with the offer that fits your goal.</h2>
           <p>
-            Whether you want stronger AI outputs, a smarter YouTube system, or a serious cybersecurity foundation, ANYMS AI gives you a practical way forward.
+            Whether you want better AI outputs, 1-1 YouTube guidance, or a premium cybersecurity foundation, ANYMS AI gives you a cleaner path forward.
           </p>
           <div class="cta-actions">
             <a href="#courses" class="btn btn-primary">Explore All Courses</a>
-            <a href="YOUR_STRIPE_LINK_16" class="btn btn-secondary">Start With $16</a>
+            <a href="https://buy.stripe.com/dRm28s2jsgAt46p7b20x209" class="btn btn-secondary">Start With $16</a>
           </div>
         </div>
       </div>
@@ -1310,34 +1255,29 @@
   <footer>
     <div class="container footer-inner">
       <div>© 2026 ANYMS AI. All rights reserved.</div>
-      <div>Built for practical AI systems, automation, and digital growth.</div>
+      <div>Premium AI systems, automation, and guided digital learning.</div>
     </div>
   </footer>
 
   <script>
-    // Scroll progress
-    const progressBar = document.getElementById('progressBar');
+    const progress = document.getElementById('progress');
     const updateProgress = () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      progressBar.style.width = progress + '%';
+      const value = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progress.style.width = value + '%';
     };
     window.addEventListener('scroll', updateProgress);
     updateProgress();
 
-    // FAQ accordion
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-      const btn = item.querySelector('.faq-q');
-      btn.addEventListener('click', () => {
-        const isActive = item.classList.contains('active');
-        faqItems.forEach(i => i.classList.remove('active'));
-        if (!isActive) item.classList.add('active');
+    document.querySelectorAll('.faq').forEach(item => {
+      item.querySelector('.faq-q').addEventListener('click', () => {
+        const active = item.classList.contains('active');
+        document.querySelectorAll('.faq').forEach(f => f.classList.remove('active'));
+        if (!active) item.classList.add('active');
       });
     });
 
-    // Reveal on scroll
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1346,12 +1286,10 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.14 });
-
+    }, {threshold:0.14});
     reveals.forEach(el => observer.observe(el));
 
-    // Slight parallax for hero visual
-    const heroVisual = document.querySelector('.hero-visual');
+    const heroVisual = document.getElementById('heroVisual');
     window.addEventListener('mousemove', (e) => {
       if (!heroVisual || window.innerWidth < 900) return;
       const rect = heroVisual.getBoundingClientRect();
