@@ -4,22 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ANYMS AI | Premium AI Systems</title>
-  <meta name="description" content="Premium AI systems, automation, and digital skill programs by ANYMS AI." />
+  <meta name="description" content="Premium AI systems, YouTube automation, and cybersecurity foundations by ANYMS AI." />
   <style>
     :root{
       --bg:#05070c;
       --bg-soft:#0b1018;
-      --card:#0e1520;
-      --card-2:#131d2b;
+      --card:#0f1622;
+      --card-2:#121c2b;
       --line:rgba(255,255,255,.08);
       --text:#f5f7fb;
-      --muted:#aab5c8;
-      --muted-2:#7f8aa0;
+      --muted:#a9b4c7;
+      --muted-2:#7d879a;
       --accent:#e5484d;
       --accent-2:#ff6b70;
-      --shadow:0 30px 80px rgba(0,0,0,.42);
+      --shadow:0 25px 70px rgba(0,0,0,.42);
       --radius:24px;
-      --max:1200px;
+      --max:1180px;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -45,38 +45,19 @@
 
     .progress{
       position:fixed;
-      top:0;
-      left:0;
-      height:3px;
+      top:0;left:0;
       width:0%;
+      height:3px;
       z-index:999;
       background:linear-gradient(90deg,var(--accent),var(--accent-2));
       box-shadow:0 0 18px rgba(229,72,77,.8);
-    }
-
-    .orb{
-      position:absolute;
-      border-radius:999px;
-      filter:blur(70px);
-      pointer-events:none;
-      opacity:.55;
-      z-index:-1;
-      animation:float 10s ease-in-out infinite;
-    }
-    .orb.one{width:220px;height:220px;left:-70px;top:70px;background:rgba(229,72,77,.15)}
-    .orb.two{width:260px;height:260px;right:-80px;top:280px;background:rgba(255,255,255,.05);animation-delay:1.3s}
-    .orb.three{width:240px;height:240px;left:10%;bottom:60px;background:rgba(229,72,77,.09);animation-delay:2.3s}
-
-    @keyframes float{
-      0%,100%{transform:translateY(0) translateX(0)}
-      50%{transform:translateY(-18px) translateX(10px)}
     }
 
     .nav{
       position:sticky;
       top:0;
       z-index:100;
-      backdrop-filter:blur(16px);
+      backdrop-filter:blur(14px);
       background:rgba(5,7,12,.72);
       border-bottom:1px solid rgba(255,255,255,.06);
     }
@@ -99,30 +80,21 @@
     }
 
     .logo-mark{
-      width:42px;
-      height:42px;
+      width:44px;
+      height:44px;
       border-radius:14px;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(135deg, rgba(229,72,77,.18), rgba(255,255,255,.04));
+      overflow:hidden;
       border:1px solid rgba(255,255,255,.08);
       box-shadow:var(--shadow);
-      position:relative;
-      overflow:hidden;
+      background:linear-gradient(135deg, rgba(229,72,77,.18), rgba(255,255,255,.04));
+      flex-shrink:0;
     }
 
-    .logo-mark::after{
-      content:"";
-      position:absolute;
-      inset:-40%;
-      background:linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent);
-      transform:rotate(25deg);
-      animation:shine 5.2s linear infinite;
-    }
-
-    @keyframes shine{
-      from{transform:translateX(-140%) rotate(25deg)}
-      to{transform:translateX(160%) rotate(25deg)}
+    .logo-mark img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      padding:4px;
     }
 
     .nav-links{
@@ -149,25 +121,51 @@
     }
 
     .btn:hover{transform:translateY(-2px)}
+
     .btn-primary{
       color:#fff;
       background:linear-gradient(180deg,var(--accent-2),var(--accent));
       box-shadow:0 18px 38px rgba(229,72,77,.25);
     }
-    .btn-primary:hover{box-shadow:0 22px 44px rgba(229,72,77,.3)}
+
     .btn-secondary{
       background:rgba(255,255,255,.04);
       border-color:var(--line);
       color:var(--text);
     }
-    .btn-secondary:hover{background:rgba(255,255,255,.07)}
 
-    .section{padding:96px 0;position:relative}
     .hero{
       min-height:calc(100vh - 76px);
       display:flex;
       align-items:center;
       padding:56px 0 32px;
+      position:relative;
+    }
+
+    .orb{
+      position:absolute;
+      border-radius:999px;
+      filter:blur(70px);
+      pointer-events:none;
+      opacity:.55;
+      z-index:-1;
+      animation:float 10s ease-in-out infinite;
+    }
+
+    .orb.one{width:220px;height:220px;left:-70px;top:70px;background:rgba(229,72,77,.15)}
+    .orb.two{width:260px;height:260px;right:-80px;top:280px;background:rgba(255,255,255,.05);animation-delay:1.3s}
+
+    @keyframes float{
+      0%,100%{transform:translateY(0) translateX(0)}
+      50%{transform:translateY(-18px) translateX(10px)}
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:28px;
+      align-items:center;
+      text-align:center;
     }
 
     .pill{
@@ -186,26 +184,13 @@
       width:8px;height:8px;border-radius:50%;
       background:var(--accent);
       box-shadow:0 0 14px rgba(229,72,77,.9);
-      animation:pulse 1.8s infinite;
-    }
-
-    @keyframes pulse{
-      0%,100%{transform:scale(1);opacity:1}
-      50%{transform:scale(1.45);opacity:.6}
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:34px;
-      align-items:center;
     }
 
     .hero-copy h1{
-      font-size:clamp(42px, 7vw, 84px);
-      line-height:.96;
+      font-size:clamp(40px, 7vw, 78px);
+      line-height:.98;
       letter-spacing:-.05em;
-      margin:18px 0 18px;
+      margin:18px auto;
       max-width:11ch;
     }
 
@@ -220,11 +205,13 @@
       color:var(--muted);
       font-size:18px;
       line-height:1.75;
-      max-width:640px;
+      max-width:760px;
+      margin:0 auto;
     }
 
     .hero-actions{
       display:flex;
+      justify-content:center;
       flex-wrap:wrap;
       gap:14px;
       margin-top:28px;
@@ -232,6 +219,7 @@
 
     .hero-stats{
       display:flex;
+      justify-content:center;
       flex-wrap:wrap;
       gap:14px;
       margin-top:28px;
@@ -257,119 +245,53 @@
       font-size:13px;
     }
 
-    .hero-visual{
+    .section{
+      padding:96px 0;
       position:relative;
-      min-height:650px;
-      border-radius:30px;
-      overflow:hidden;
-      border:1px solid var(--line);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)),
-        linear-gradient(135deg, #090d15, #10192a);
-      box-shadow:var(--shadow);
-      transform-style:preserve-3d;
-      transition:transform .2s ease;
     }
 
-    .hero-visual::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at 75% 18%, rgba(229,72,77,.18), transparent 18%),
-        radial-gradient(circle at 20% 80%, rgba(255,255,255,.05), transparent 18%);
-      z-index:0;
-    }
-
-    .grid-lines{
-      position:absolute;
-      inset:0;
-      background-image:
-        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-      background-size:34px 34px;
-      mask-image:linear-gradient(180deg, rgba(0,0,0,.8), transparent 92%);
-      z-index:0;
-    }
-
-    .hero-image-wrap{
-      position:absolute;
-      inset:18px;
-      border-radius:24px;
-      overflow:hidden;
-      z-index:1;
-      border:1px solid rgba(255,255,255,.07);
-    }
-
-    .hero-image{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      transform:scale(1.05);
-      animation:slowZoom 14s ease-in-out infinite alternate;
-      filter:saturate(1.02) contrast(1.03);
-    }
-
-    @keyframes slowZoom{
-      from{transform:scale(1.05) translateY(0)}
-      to{transform:scale(1.10) translateY(-10px)}
-    }
-
-    .floating{
-      position:absolute;
-      padding:14px 16px;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.09);
-      background:rgba(8,11,18,.78);
-      backdrop-filter:blur(12px);
-      color:var(--muted);
-      box-shadow:var(--shadow);
-      z-index:2;
-      animation:cardFloat 5s ease-in-out infinite;
-    }
-
-    .floating strong{
-      display:block;
-      color:var(--text);
-      margin-bottom:2px;
-    }
-
-    .f1{top:22px;left:22px}
-    .f2{right:22px;top:90px;animation-delay:1.2s}
-    .f3{left:22px;bottom:22px;animation-delay:2.2s}
-
-    @keyframes cardFloat{
-      0%,100%{transform:translateY(0)}
-      50%{transform:translateY(-9px)}
-    }
-
-    .strip{padding:10px 0 0}
-    .strip-grid{
+    .strip-grid,
+    .courses-grid,
+    .grid-4,
+    .how-grid{
       display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:14px;
+      gap:18px;
+    }
+
+    .strip-grid{grid-template-columns:repeat(4,1fr)}
+    .courses-grid{grid-template-columns:repeat(3,1fr)}
+    .grid-4{grid-template-columns:repeat(4,1fr)}
+    .how-grid{grid-template-columns:repeat(4,1fr)}
+
+    .strip-box,
+    .box,
+    .step,
+    .course{
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
     }
 
     .strip-box{
       padding:18px 20px;
       border-radius:18px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.03);
       text-align:center;
       color:var(--muted);
       font-weight:600;
-      box-shadow:var(--shadow);
       transition:.25s ease;
     }
 
-    .strip-box:hover{
-      transform:translateY(-3px);
-      background:rgba(255,255,255,.05);
+    .strip-box:hover,
+    .box:hover,
+    .step:hover,
+    .course:hover{
+      transform:translateY(-5px);
     }
 
     .section-head{
       max-width:800px;
-      margin-bottom:28px;
+      margin:0 auto 28px;
+      text-align:center;
     }
 
     .section-head h2{
@@ -385,24 +307,10 @@
       line-height:1.75;
     }
 
-    .grid-4{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:18px;
-    }
-
     .box{
       padding:24px;
       border-radius:24px;
-      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
       transition:.28s ease;
-    }
-
-    .box:hover{
-      transform:translateY(-6px);
-      border-color:rgba(229,72,77,.22);
     }
 
     .icon{
@@ -411,7 +319,7 @@
       display:grid;
       place-items:center;
       font-size:20px;
-      margin-bottom:16px;
+      margin:0 auto 16px;
       background:rgba(229,72,77,.12);
       border:1px solid rgba(229,72,77,.18);
     }
@@ -419,19 +327,14 @@
     .box h3{
       font-size:20px;
       margin-bottom:8px;
+      text-align:center;
     }
 
     .box p{
       color:var(--muted);
       font-size:15px;
       line-height:1.7;
-    }
-
-    .courses-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:22px;
-      align-items:stretch;
+      text-align:center;
     }
 
     .course{
@@ -439,17 +342,7 @@
       padding:26px;
       border-radius:28px;
       overflow:hidden;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)),
-        linear-gradient(180deg, var(--card), var(--card-2));
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
       transition:.3s ease;
-    }
-
-    .course:hover{
-      transform:translateY(-8px);
-      border-color:rgba(229,72,77,.25);
     }
 
     .course.featured{
@@ -460,8 +353,6 @@
 
     .course-badge{
       display:inline-flex;
-      align-items:center;
-      gap:8px;
       padding:8px 12px;
       border-radius:999px;
       font-size:12px;
@@ -482,12 +373,11 @@
 
     .course-image{
       width:100%;
-      height:220px;
+      height:230px;
       object-fit:cover;
       border-radius:20px;
       border:1px solid rgba(255,255,255,.07);
       margin-bottom:18px;
-      box-shadow:var(--shadow);
     }
 
     .price{
@@ -557,123 +447,11 @@
       pointer-events:none;
     }
 
-    .about-wrap{
-      display:grid;
-      grid-template-columns:.92fr 1.08fr;
-      gap:24px;
-      align-items:center;
-    }
-
-    .about-card{
-      position:relative;
-      min-height:620px;
-      border-radius:30px;
-      overflow:hidden;
-      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
-    }
-
-    .about-card img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      transform:scale(1.03);
-      transition:transform 1s ease;
-    }
-
-    .about-card:hover img{transform:scale(1.08)}
-
-    .about-card::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.58));
-    }
-
-    .about-badge{
-      position:absolute;
-      left:18px;
-      right:18px;
-      bottom:18px;
-      z-index:2;
-      padding:18px;
-      border-radius:20px;
-      background:rgba(7,10,16,.78);
-      border:1px solid rgba(255,255,255,.08);
-      backdrop-filter:blur(12px);
-      color:var(--muted);
-    }
-
-    .about-badge strong{
-      display:block;
-      color:var(--text);
-      margin-bottom:4px;
-      font-size:16px;
-    }
-
-    .about-copy{
-      padding:34px;
-      border-radius:30px;
-      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
-    }
-
-    .about-copy h2{
-      font-size:clamp(32px,4.5vw,58px);
-      line-height:1.04;
-      letter-spacing:-.04em;
-      margin-bottom:14px;
-    }
-
-    .about-copy p{
-      color:var(--muted);
-      margin-bottom:15px;
-      line-height:1.75;
-      font-size:16px;
-    }
-
-    .about-copy ul{
-      list-style:none;
-      display:grid;
-      gap:12px;
-      margin:20px 0 28px;
-    }
-
-    .about-copy li{
-      position:relative;
-      padding-left:30px;
-      color:#e0e8f5;
-    }
-
-    .about-copy li::before{
-      content:"";
-      position:absolute;
-      left:0;
-      top:8px;
-      width:14px;height:14px;
-      border-radius:999px;
-      background:linear-gradient(180deg,var(--accent-2),var(--accent));
-      box-shadow:0 0 16px rgba(229,72,77,.55);
-    }
-
-    .how-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:18px;
-    }
-
     .step{
       padding:24px;
       border-radius:24px;
-      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
       transition:.28s ease;
     }
-
-    .step:hover{transform:translateY(-6px)}
 
     .step-num{
       width:42px;height:42px;
@@ -683,23 +461,27 @@
       font-weight:800;
       background:rgba(229,72,77,.12);
       border:1px solid rgba(229,72,77,.18);
-      margin-bottom:14px;
+      margin:0 auto 14px;
     }
 
     .step h3{
       font-size:20px;
       margin-bottom:8px;
+      text-align:center;
     }
 
     .step p{
       color:var(--muted);
       font-size:15px;
       line-height:1.7;
+      text-align:center;
     }
 
     .faq-wrap{
       display:grid;
       gap:14px;
+      max-width:900px;
+      margin:auto;
     }
 
     .faq{
@@ -768,18 +550,6 @@
       box-shadow:var(--shadow);
     }
 
-    .cta-box::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at 20% 30%, rgba(229,72,77,.13), transparent 20%),
-        radial-gradient(circle at 80% 70%, rgba(255,255,255,.05), transparent 22%);
-      z-index:0;
-    }
-
-    .cta-box > *{position:relative;z-index:1}
-
     .cta-box h2{
       font-size:clamp(32px,4.5vw,58px);
       line-height:1.04;
@@ -829,24 +599,17 @@
     }
 
     @media (max-width:1100px){
-      .hero-grid,.strip-grid,.grid-4,.courses-grid,.about-wrap,.how-grid{
+      .strip-grid,.grid-4,.courses-grid,.how-grid{
         grid-template-columns:1fr 1fr;
       }
-      .hero-visual{min-height:520px}
-      .about-card{min-height:460px}
     }
 
     @media (max-width:760px){
       .nav-links{display:none}
       .section{padding:72px 0}
-      .hero{min-height:auto;padding-top:36px}
-      .hero-grid,.strip-grid,.grid-4,.courses-grid,.about-wrap,.how-grid{
+      .strip-grid,.grid-4,.courses-grid,.how-grid{
         grid-template-columns:1fr;
       }
-      .hero-copy h1{max-width:none}
-      .hero-visual{min-height:420px}
-      .about-card{min-height:360px}
-      .about-copy,.cta-box{padding:26px}
       .footer-inner{flex-direction:column;align-items:flex-start}
     }
   </style>
@@ -857,14 +620,16 @@
   <nav class="nav">
     <div class="container nav-inner">
       <a href="#" class="logo">
-        <div class="logo-mark">A</div>
+        <div class="logo-mark">
+          <img src="YOUR_LOGO_LINK" alt="ANYMS AI Logo">
+        </div>
         <span>ANYMS AI</span>
       </a>
 
       <div class="nav-links">
         <a href="#why">Why Us</a>
         <a href="#courses">Courses</a>
-        <a href="#about">About</a>
+        <a href="#how">How It Works</a>
         <a href="#faq">FAQ</a>
       </div>
 
@@ -887,12 +652,12 @@
           <h1>Turn AI into <span class="highlight">systems</span>, not just content.</h1>
 
           <p>
-            ANYMS AI helps you build smarter with premium prompts, YouTube automation guidance, and cybersecurity foundations — all in one clean, modern, luxury experience.
+            ANYMS AI helps you build smarter with premium prompts, YouTube automation guidance, and cybersecurity foundations — all in one clean, luxury experience.
           </p>
 
           <div class="hero-actions">
             <a href="#courses" class="btn btn-primary">Explore Courses</a>
-            <a href="#about" class="btn btn-secondary">About ANYMS AI</a>
+            <a href="#how" class="btn btn-secondary">How It Works</a>
           </div>
 
           <div class="hero-stats">
@@ -910,42 +675,21 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="hero-visual reveal" id="heroVisual">
-          <div class="grid-lines"></div>
-
-          <div class="floating f1">
-            <strong>ANYMS AI</strong>
-            premium systems + practical direction
-          </div>
-
-          <div class="floating f2">
-            <strong>3-course stack</strong>
-            prompts · automation · cybersecurity
-          </div>
-
-          <div class="floating f3">
-            <strong>Built for action</strong>
-            not just information
-          </div>
-
-          <div class="hero-image-wrap">
-            <img class="hero-image" src="images/hero-mask.jpg" alt="ANYMS AI premium hero image" />
-          </div>
+    <section class="section" id="why" style="padding-top:10px;">
+      <div class="container">
+        <div class="grid-4 reveal">
+          <div class="strip-box">AI Prompt Systems</div>
+          <div class="strip-box">YouTube Automation</div>
+          <div class="strip-box">Cybersecurity Foundation</div>
+          <div class="strip-box">Personal Guidance</div>
         </div>
       </div>
     </section>
 
-    <section class="strip">
-      <div class="container strip-grid reveal">
-        <div class="strip-box">AI Prompt Systems</div>
-        <div class="strip-box">YouTube Automation</div>
-        <div class="strip-box">Cybersecurity Foundation</div>
-        <div class="strip-box">Personal Guidance</div>
-      </div>
-    </section>
-
-    <section class="section" id="why">
+    <section class="section">
       <div class="container">
         <div class="section-head reveal">
           <h2>Built for action, not just information.</h2>
@@ -963,7 +707,7 @@
           <div class="box reveal">
             <div class="icon">🎯</div>
             <h3>Clear direction</h3>
-            <p>No useless overload. Just clean guidance built around real use and real next steps.</p>
+            <p>No useless overload. Just clean guidance built around real next steps.</p>
           </div>
           <div class="box reveal">
             <div class="icon">🤖</div>
@@ -980,19 +724,18 @@
     </section>
 
     <section class="section" id="courses">
-      <div class="orb three"></div>
       <div class="container">
         <div class="section-head reveal">
           <h2>Choose your path.</h2>
           <p>
-            Start with the offer that matches your goal. Each one is designed to feel premium, clear, and easy to follow.
+            Start with the offer that matches your goal. Each one is positioned to feel premium, clear, and worth the price.
           </p>
         </div>
 
         <div class="courses-grid">
           <div class="course reveal">
             <div class="course-badge">Entry Offer</div>
-            <img class="course-image" src="images/prompt-system.jpg" alt="AI Prompt System" />
+            <img class="course-image" src="YOUR_COURSE1_LINK" alt="AI Prompt System">
             <div class="price">
               <strong>$16</strong>
               <span>one-time</span>
@@ -1016,7 +759,7 @@
 
           <div class="course featured reveal">
             <div class="course-badge">Main Offer</div>
-            <img class="course-image" src="images/youtube-ai.jpg" alt="YouTube AI and Automation" />
+            <img class="course-image" src="YOUR_COURSE2_LINK" alt="YouTube AI and Automation">
             <div class="price">
               <strong>$69</strong>
               <span>one-time</span>
@@ -1040,7 +783,7 @@
 
           <div class="course reveal">
             <div class="course-badge">Premium Offer</div>
-            <img class="course-image" src="images/ceh-foundation.jpg" alt="CEH Foundation Program" />
+            <img class="course-image" src="YOUR_COURSE3_LINK" alt="CEH Foundation Program">
             <div class="price">
               <strong>$150</strong>
               <span>one-time</span>
@@ -1065,71 +808,7 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2>Who ANYMS AI is built for.</h2>
-          <p>
-            Designed for people who want useful systems, better workflows, stronger direction, and premium learning without wasting time.
-          </p>
-        </div>
-
-        <div class="grid-4">
-          <div class="box reveal">
-            <h3>Students</h3>
-            <p>Who want practical digital skills they can actually use beyond just watching tutorials.</p>
-          </div>
-          <div class="box reveal">
-            <h3>Creators</h3>
-            <p>Who want faster content systems, stronger ideas, and better AI-assisted output.</p>
-          </div>
-          <div class="box reveal">
-            <h3>Beginners</h3>
-            <p>Who need a clean starting point with less confusion and more clarity.</p>
-          </div>
-          <div class="box reveal">
-            <h3>Hustlers</h3>
-            <p>Who want time-saving systems and skills that support smarter online work.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="about">
-      <div class="container about-wrap">
-        <div class="about-card reveal">
-          <img src="images/about-mask.jpg" alt="ANYMS AI founder visual" />
-          <div class="about-badge">
-            <strong>ANYMS AI</strong>
-            Built for people who want premium systems, sharper execution, and a cleaner path forward.
-          </div>
-        </div>
-
-        <div class="about-copy reveal">
-          <h2>About ANYMS AI</h2>
-          <p>
-            ANYMS AI was built for people who do not want to stay stuck in endless information and random motivation.
-          </p>
-          <p>
-            The idea is simple: make AI more useful, make workflows more efficient, and give people a stronger path through premium systems that feel clear, practical, and valuable.
-          </p>
-          <p>
-            Whether your goal is smarter prompts, better YouTube execution, or a stronger cybersecurity foundation, the focus stays the same — clarity, premium experience, and forward movement.
-          </p>
-
-          <ul>
-            <li>Built around real use, not hype</li>
-            <li>Premium experience with clear value</li>
-            <li>Focused on speed, structure, and execution</li>
-            <li>Made for modern AI-driven work</li>
-          </ul>
-
-          <a href="#courses" class="btn btn-primary">Start With ANYMS AI</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
+    <section class="section" id="how">
       <div class="container">
         <div class="section-head reveal">
           <h2>How it works.</h2>
@@ -1288,23 +967,6 @@
       });
     }, {threshold:0.14});
     reveals.forEach(el => observer.observe(el));
-
-    const heroVisual = document.getElementById('heroVisual');
-    window.addEventListener('mousemove', (e) => {
-      if (!heroVisual || window.innerWidth < 900) return;
-      const rect = heroVisual.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      if (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom) {
-        heroVisual.style.transform = `perspective(1200px) rotateY(${x * 5}deg) rotateX(${y * -5}deg)`;
-      } else {
-        heroVisual.style.transform = `perspective(1200px) rotateY(0deg) rotateX(0deg)`;
-      }
-    });
-
-    window.addEventListener('mouseleave', () => {
-      if (heroVisual) heroVisual.style.transform = `perspective(1200px) rotateY(0deg) rotateX(0deg)`;
-    });
   </script>
 </body>
 </html>
